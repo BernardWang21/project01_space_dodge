@@ -1,11 +1,21 @@
+# HW: change window size to 400x200 with any color
+
 import pygame
 import time
 import random
 pygame.font.init()
 
-WIDTH, HEIGHT = 1000, 800
+WIDTH, HEIGHT = 400, 200
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Dodge")
+
+# configure background color
+background_color = (255, 130, 0)  # bright orange
+WIN.fill(background_color)
+
+# update the display
+pygame.display.flip()
+time.sleep(10)
 
 BG = pygame.transform.scale(pygame.image.load("bg.jpeg"), (WIDTH, HEIGHT))
 
@@ -85,7 +95,8 @@ def main():
 
         if hit:
             lost_text = FONT.render("You Lost!", 1, "white")
-            WIN.blit(lost_text, (WIDTH/2 - lost_text.get_width()/2, HEIGHT/2 - lost_text.get_height()/2))
+            WIN.blit(lost_text, (WIDTH/2 - lost_text.get_width() /
+                     2, HEIGHT/2 - lost_text.get_height()/2))
             pygame.display.update()
             pygame.time.delay(4000)
             break
